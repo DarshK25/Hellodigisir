@@ -103,9 +103,9 @@ const Features = () => {
         Get Started
       </button>
       <br></br><br></br>
-      <div className="absolute bottom-13 left-0 w-full h-20 overflow-hidden">
-        <div className="w-full h-full bg-white transform skew-y-3 origin-top-left"></div>
-      </div>
+        <div className="absolute bottom-15 left-0 w-full h-20 overflow-hidden">
+            <div className="w-full h-full bg-white transform skew-y-2 origin-top-left"></div>
+        </div>
     </div>
   );
 };
