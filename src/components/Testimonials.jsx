@@ -70,7 +70,7 @@ const Testimonials = () => {
   const multipliedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12 w-full" ref={containerRef}>
+    <div className="max-w-6xl mx-auto px-6 py-12 w-full bg-white" ref={containerRef}>
       <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
         What Our Users Say
       </h2>
@@ -81,9 +81,7 @@ const Testimonials = () => {
           <div className="relative h-[300px] w-full overflow-hidden">
             <motion.div
               className="flex gap-6 absolute left-0"
-              animate={{
-                x: [0, -1 * (testimonials.length * 324)],
-              }}
+              animate={{ x: [0, -1 * (testimonials.length * 324)] }}
               transition={{
                 duration: 70,
                 repeat: Infinity,
@@ -100,9 +98,7 @@ const Testimonials = () => {
           <div className="relative w-full overflow-hidden">
             <motion.div
               className="flex gap-6 absolute left-0"
-              animate={{
-                x: [-1 * (testimonials.length * 324), 0],
-              }}
+              animate={{ x: [-1 * (testimonials.length * 324), 0] }}
               transition={{
                 duration: 70,
                 repeat: Infinity,
