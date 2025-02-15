@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
@@ -17,7 +17,8 @@ const faqs = [
   },
   {
     question: "How to start without recorded content?",
-    answer: "You can start by adding live sessions, assignments, and notes for your students.",
+    answer:
+      "You can start by adding live sessions, assignments, and notes for your students.",
   },
 ];
 
@@ -29,16 +30,33 @@ const FAQ = () => {
   };
 
   return (
-    <div id="faq" className="max-w-4xl mx-auto px-6 py-12">
-      <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
+    <motion.div
+      id="faq"
+      className="max-w-4xl mx-auto px-6 py-12 bg-white"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.h2
+        className="text-4xl font-bold text-center text-blue-600 mb-8"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         For more understanding, visit FAQs
-      </h2>
+      </motion.h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <div
+          <motion.div
             key={index}
             className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 cursor-pointer hover:shadow-md transition-shadow duration-300"
             onClick={() => toggleFAQ(index)}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
           >
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold text-gray-900">
@@ -60,10 +78,10 @@ const FAQ = () => {
                 </motion.p>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
