@@ -6,8 +6,8 @@ import learning from '../assets/learning.avif';
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center py-16">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen flex bg-white items-center justify-center py-16">
+      <div className="mx-auto px-4">
         {/* Centered Title */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">

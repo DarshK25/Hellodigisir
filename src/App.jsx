@@ -14,7 +14,7 @@ import Testimonials from "./components/Testimonials.jsx";
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className="">
         <Navbar /> {/* Navbar is outside Routes so it appears on all pages */}
         <Routes>
           {/* Home Route (Group multiple sections under one route) */}
