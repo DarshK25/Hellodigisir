@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -10,16 +10,16 @@ const cardVariants = {
 const PricingCard = ({ title, price, features, description, isSelected, onSelect }) => (
   <motion.div 
     id="pricing"
-    className={`rounded-lg shadow-lg overflow-hidden cursor-pointer ${
+    className={`flex flex-col h-full rounded-lg shadow-lg overflow-hidden cursor-pointer ${
       isSelected ? "border-2 border-blue-500" : "border-2 border-transparent"
     }`}
     variants={cardVariants}
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.2 }}
-    onClick={onSelect} // Add click handler to select the plan
+    onClick={onSelect}
   >
-    <div className="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+    <div className="px-6 py-8 bg-white sm:p-10 sm:pb-6 flex-grow">
       <motion.h3 
         className="text-center text-2xl font-semibold text-gray-900"
         variants={cardVariants}
@@ -55,7 +55,7 @@ const PricingCard = ({ title, price, features, description, isSelected, onSelect
       </motion.p>
     </div>
 
-    <div className="px-6 pt-6 pb-8 bg-gray-50 sm:p-10 sm:pt-6">
+    <div className="flex flex-col flex-grow px-6 pt-6 pb-8 bg-gray-50 sm:p-10 sm:pt-6">
       <ul className="space-y-4">
         {features.map((feature, index) => (
           <motion.li 
@@ -74,7 +74,7 @@ const PricingCard = ({ title, price, features, description, isSelected, onSelect
       </ul>
 
       <motion.div 
-        className="mt-6"
+        className="mt-auto"
         variants={cardVariants}
         initial="hidden"
         whileInView="visible"
@@ -84,8 +84,8 @@ const PricingCard = ({ title, price, features, description, isSelected, onSelect
           href="#contact"
           className={`block w-full text-center px-4 py-3 border border-transparent text-base font-medium rounded-md ${
             isSelected
-              ? "text-white bg-blue-600 hover:bg-blue-700"
-              : "text-blue-600 bg-white border-blue-600 hover:bg-blue-50"
+              ? "text-white bg-blue-600 hover:bg-blue-700" //to put a light border on button even when not selected we
+              : "text-blue-600 bg-white shadow-md border border-gray-200 hover:bg-blue-50"
           }`}
         >
           Choose a plan
@@ -96,7 +96,7 @@ const PricingCard = ({ title, price, features, description, isSelected, onSelect
 );
 
 const Pricing = () => {
-  const [selectedPlan, setSelectedPlan] = useState(1); // Default selected plan is the middle one (index 1)
+  const [selectedPlan, setSelectedPlan] = useState(1);
 
   const plans = [
     {
@@ -144,7 +144,7 @@ const Pricing = () => {
   return (
     <motion.section 
       id="pricing" 
-      className="py-20 bg-gray-50"
+      className="py-20 bg-gradient-to-br from-[#f3f5fc] to-[#e0e7ff]"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -178,7 +178,7 @@ const Pricing = () => {
         </motion.div>
 
         <motion.div 
-          className="mt-16 grid gap-8 lg:grid-cols-3"
+          className="mt-16 grid gap-8 lg:grid-cols-3 items-stretch"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -187,12 +187,16 @@ const Pricing = () => {
             <PricingCard 
               key={index} 
               {...plan} 
-              isSelected={selectedPlan === index} // Check if the plan is selected
-              onSelect={() => setSelectedPlan(index)} // Update the selected plan on click
+              isSelected={selectedPlan === index}
+              onSelect={() => setSelectedPlan(index)}
             />
           ))}
         </motion.div>
       </motion.div>
+      <br></br><br></br>
+      <div className="absolute -bottom-15 left-0 w-full h-20 overflow-hidden">
+        <div className="w-full h-full bg-white transform skew-y-3 origin-top-left"></div>
+      </div>
     </motion.section>
   );
 };

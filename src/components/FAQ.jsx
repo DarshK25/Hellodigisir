@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const faqs = [
   {
     question: "Will the app have my coaching name?",
-    answer: "Yes, your coaching name can be included in the app.",
+    answer: "Yes, you can customize the app with your coaching name and branding.",
   },
   {
     question: "Can we add offline students in our app?",
@@ -13,12 +13,12 @@ const faqs = [
   },
   {
     question: "Any limitation on the number of students that can be added?",
-    answer: "No, there are no limitations on the number of students you can add.",
+    answer: "No, there are no limitations on the number of students you can add to the platform.",
   },
   {
     question: "How to start without recorded content?",
     answer:
-      "You can start by adding live sessions, assignments, and notes for your students.",
+      "You can start by creating live sessions and gradually add recorded content as you develop your course materials.",
   },
 ];
 
@@ -30,13 +30,10 @@ const FAQ = () => {
   };
 
   return (
-    <motion.div
+    <div
       id="faq"
       className="max-w-4xl mx-auto px-6 py-12 bg-white"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      
     >
       <motion.h2
         className="text-4xl font-bold text-center text-blue-600 mb-8"
@@ -81,7 +78,7 @@ const FAQ = () => {
           </motion.div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
