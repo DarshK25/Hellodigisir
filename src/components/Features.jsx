@@ -1,111 +1,168 @@
 import { FileText, Book, Megaphone, Clock, Folder, Video, BarChart, School } from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
   {
     title: "Student Management",
     description: "Comprehensive student data management including US-ID, online forms, and more.",
     icon: FileText,
-    color: "bg-red-100",
+    gradient: "from-red-500/20 to-orange-500/20",
+    iconColor: "text-red-600",
     subFeatures: ["Admission", "Enrollment", "Student Profiles"],
   },
   {
     title: "Academic Tools",
     description: "Powerful tools for academic management and assessment.",
     icon: Book,
-    color: "bg-blue-100",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    iconColor: "text-blue-600",
     subFeatures: ["Grading System", "Assignments", "Exam Scheduler"],
   },
   {
     title: "Communication",
     description: "Efficient communication channels for students, parents, and staff.",
     icon: Megaphone,
-    color: "bg-purple-100",
+    gradient: "from-purple-500/20 to-pink-500/20",
+    iconColor: "text-purple-600",
     subFeatures: ["Messaging", "Announcements", "Parent Portal"],
   },
   {
     title: "Scheduling",
     description: "Comprehensive scheduling and time management features.",
     icon: Clock,
-    color: "bg-yellow-100",
+    gradient: "from-amber-500/20 to-yellow-500/20",
+    iconColor: "text-amber-600",
     subFeatures: ["Timetable", "Event Planner", "Reminders"],
   },
   {
     title: "Content Management",
     description: "Robust content creation and management capabilities.",
     icon: Folder,
-    color: "bg-green-100",
+    gradient: "from-green-500/20 to-emerald-500/20",
+    iconColor: "text-green-600",
     subFeatures: ["Lesson Plans", "Study Materials", "E-books"],
   },
   {
     title: "Virtual Learning",
     description: "Advanced virtual and hybrid learning solutions.",
     icon: Video,
-    color: "bg-indigo-100",
+    gradient: "from-indigo-500/20 to-blue-500/20",
+    iconColor: "text-indigo-600",
     subFeatures: ["Live Classes", "Recorded Sessions", "Discussion Forums"],
   },
   {
     title: "Analytics & Reporting",
     description: "Comprehensive analytics and reporting tools for data-driven decisions.",
     icon: BarChart,
-    color: "bg-orange-100",
+    gradient: "from-orange-500/20 to-red-500/20",
+    iconColor: "text-orange-600",
     subFeatures: ["Performance Reports", "Attendance Analytics", "Custom Reports"],
   },
   {
     title: "Administration",
     description: "Streamlined administrative tools for efficient institute management.",
     icon: School,
-    color: "bg-teal-100",
+    gradient: "from-teal-500/20 to-green-500/20",
+    iconColor: "text-teal-600",
     subFeatures: ["Staff Management", "Finance & Payroll", "Inventory Control"],
   },
 ];
 
-const FeatureCard = ({ title, description, icon: Icon, color, subFeatures }) => {
+const FeatureCard = ({ title, description, icon: Icon, gradient, iconColor, subFeatures }) => {
   return (
-    <div className="p-6 bg-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-      <div className="flex items-center gap-3 mb-4">
-        <div className={`w-10 h-10 flex items-center justify-center rounded-xl ${color}`}>
-          <Icon className="w-5 h-5 text-gray-700" />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="group relative p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300"
+    >
+      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-300`} />
+      <div className="relative z-10">
+        <div className="flex items-center gap-4 mb-4">
+          <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-white shadow-md ${iconColor}`}>
+            <Icon className="w-6 h-6" />
+          </div>
+          <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
         </div>
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <p className="text-gray-600 mb-6">{description}</p>
+        <div className="space-y-3">
+          {subFeatures.map((feature, index) => (
+            <div key={index} className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-gray-400" />
+              <span className="text-gray-600">{feature}</span>
+            </div>
+          ))}
+        </div>
       </div>
-      <p className="text-gray-600">{description}</p>
-      <ul className="mt-3 text-sm text-gray-500 space-y-1">
-        {subFeatures.map((feature, index) => (
-          <li key={index} className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-            {feature}
-          </li>
-        ))}
-      </ul>
-    </div>
+    </motion.div>
   );
 };
 
 const Features = () => {
   return (
-    <div id="featues" className="bg-gradient-to-br from-[#f3f5fc] to-[#e0e7ff] max-w-6xl mx-auto px-6 py-12 text-center">
-      <h2 className="text-3xl font-bold mb-4 text-gray-900">
-        Comprehensive Educational Management System
-      </h2>
-      <h4 className="text-xl text-gray-600 mt-6 mb-8">
-        Empower your institution with our all-in-one solution for seamless management and enhanced learning experiences.
-      </h4>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {features.map((feature, index) => (
-          <FeatureCard key={index} {...feature} />
-        ))}
-      </div>
-      <h2 className="text-3xl font-bold mb-4 text-gray-900 mt-10">
-        Ready to transform your educational institute?
-      </h2>
-      <button className="mt-5 bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-3 px-6 rounded-lg shadow-md shadow-[0_4px_15px_rgba(59,130,246,0.3)] hover:bg-blue-700 transition">
-        Get Started
-      </button>
-      <br></br><br></br>
-        <div className="absolute bottom-15 left-0 w-full h-20 overflow-hidden">
-            <div className="w-full h-full bg-white transform skew-y-2 origin-top-left"></div>
+    <div className="relative w-full overflow-hidden">
+      {/* Background blur circles */}
+      <div className="absolute top-40 left-0 w-[1000px] h-[1000px] bg-blue-100/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30" />
+      <div className="absolute bottom-0 right-0 w-[1000px] h-[1000px] bg-purple-100/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30" />
+
+      <div className="relative max-w-7xl mx-auto px-6">
+        <div className="text-center mb-8 p-4 rounded-lg bg-gradient-to-b from-[rgb(231,235,255)] to-white">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+          >
+            Revolutionize Your
+            <br />
+            <span className="bg-gradient-to-r from-[#4355ff] to-[#7081ff] bg-clip-text text-transparent relative z-10">
+              Institute Management  
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
+          >
+            Empower your institution with our all-in-one solution for seamless management and enhanced learning experiences.
+          </motion.p>
         </div>
+
+        <div className="flex justify-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-6 py-2 rounded-full bg-blue-50 text-blue-600 font-semibold tracking-wide text-sm"
+          >
+            FEATURES
+          </motion.div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="text-center mt-20"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+            Ready to transform your educational institute?
+          </h2>
+          <button className="bg-gradient-to-r from-[#4355ff] to-[#7081ff] text-white py-4 px-8 rounded-xl text-lg font-semibold shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300">
+            Get Started
+          </button>
+        </motion.div>
+      </div>
     </div>
   );
 };

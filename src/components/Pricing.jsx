@@ -10,7 +10,7 @@ const cardVariants = {
 const PricingCard = ({ title, price, features, description, isSelected, onSelect }) => (
   <motion.div 
     id="pricing"
-    className={`flex flex-col h-full rounded-lg shadow-lg overflow-hidden cursor-pointer ${
+    className={`flex flex-col h-full rounded-lg shadow-lg overflow-hidden cursor-pointer max-w-[90%] mx-auto md:max-w-full ${
       isSelected ? "border-2 border-blue-500" : "border-2 border-transparent"
     }`}
     variants={cardVariants}
@@ -144,7 +144,7 @@ const Pricing = () => {
   return (
     <motion.section 
       id="pricing" 
-      className="py-20 bg-gradient-to-br from-[#f3f5fc] to-[#e0e7ff]"
+      className=" bg-gradient-to-b from-white via-[rgb(231,235,255)] to-white relative"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -157,8 +157,17 @@ const Pricing = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <motion.div className="text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-6 py-2 rounded-full bg-blue-50 text-blue-600 font-semibold tracking-wide text-sm"
+          >
+            PRICING
+          </motion.div>
+
           <motion.h2 
-            className="text-3xl font-extrabold text-gray-900 sm:text-4xl"
+            className="text-3xl font-extrabold text-gray-900 sm:text-4xl mt-4"
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
@@ -173,7 +182,7 @@ const Pricing = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            Select the perfect plan to empower your teaching journey with DigiSir
+            Select the perfect plan to empower your teaching journey with Erudexa
           </motion.p>
         </motion.div>
 
@@ -193,10 +202,6 @@ const Pricing = () => {
           ))}
         </motion.div>
       </motion.div>
-      <br></br><br></br>
-      <div className="absolute -bottom-15 left-0 w-full h-20 overflow-hidden">
-        <div className="w-full h-full bg-white transform skew-y-3 origin-top-left"></div>
-      </div>
     </motion.section>
   );
 };

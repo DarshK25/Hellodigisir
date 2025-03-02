@@ -1,308 +1,211 @@
 import { motion } from 'framer-motion';
-import our_mission from '../assets/our_mission.avif';
-import our_vision from '../assets/our_vision.avif';
-import newClass from '../assets/newClass.avif';
-import learning from '../assets/learning.avif';
+
+const images = {
+  set1: {
+    main: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070", // Dashboard UI
+    overlay1: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070", // Student interface
+    overlay2: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070", // Learning
+    overlay3: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070", // Analytics
+  },
+  set2: {
+    main: "https://images.unsplash.com/photo-1620912189865-1e8a33da4c5e?q=80&w=2069", // Management
+    overlay1: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070", // Virtual classroom
+    overlay2: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=2074", // Education
+    overlay3: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070", // Modern learning
+  }
+};
 
 const AboutUs = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="min-h-screen flex bg-white items-center justify-center py-16"
-    >
-      <div className="mx-auto px-4 w-full max-w-7xl">
-        {/* Centered Title */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-            About Us
-          </h1>
-          <p className="text-gray-600 text-base sm:text-lg mt-4 max-w-2xl mx-auto">
-            To establish Hello Digi Sir as the leading EduTech platform, connecting millions of educators, learners, and institutions worldwide, and becoming the trusted destination for quality education, skill development, and innovation in learning.
-          </p>
-        </motion.div>
+    <div className="w-full bg-gradient-to-b from-white via-blue-50 to-white">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto px-4 py-20 relative overflow-hidden"
+      >
+        {/* Background blur circles for atmosphere */}
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+        <div className="absolute top-40 right-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
 
-        {/* First Row - Vision Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
-          {/* Left Content - Overlapping Images */}
+        {/* Main Content */}
+        <div className="relative z-10">
+          {/* Header Section */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative max-w-md mx-auto order-2 md:order-1"
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
           >
-            <motion.img
-              src={newClass}
-              alt="Our Vision"
-              className="w-full h-64 object-cover shadow-2xl shadow-gray-700"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-800/50 to-transparent blur-xl"></div>
-            <motion.img
-              src={our_vision}
-              alt="Our Vision"
-              className="absolute top-8 left-8 w-full h-64 object-cover shadow-2xl shadow-gray-700 backdrop-blur-lg"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-blue-800/10 to-transparent blur-xl"></div>
-          </motion.div>
-
-          {/* Right Content - Mission */}
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="space-y-6 order-1 md:order-2 text-center md:text-left"
-          >
-            <h5 className="text-sm font-semibold text-gray-600 uppercase tracking-widest">
-              Our Mission
-            </h5>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="text-3xl sm:text-4xl font-extrabold leading-tight text-gray-900 mt-2"
-            >
-              Empower education with a{" "}
-              <motion.span
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1 }}
-                className="relative inline-block"
-              >
-                single platform
-                <span className="absolute left-0 bottom-0 w-full h-[5px] bg-gray-300 opacity-50"></span>
-              </motion.span>
-            </motion.h1>
-            <p className="text-gray-600">
-              You deserve a seamless EduTech experience in 2025. HelloDigiSir simplifies administration,
-              enhances learning, and drives academic excellence.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              About Us
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              To establish Erudexa as the leading EduTech platform, connecting millions of educators, learners, and institutions worldwide.
             </p>
-            <div className="mt-8 space-y-6">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1 }}
-                className="flex items-start space-x-4"
-              >
-                <div className="bg-blue-500 text-white p-3 rounded-lg">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M14.752 11.168l-4.586-4.586a2 2 0 00-2.829 0l-4.586 4.586M14.752 16.829l-4.586-4.586a2 2 0 00-2.829 0l-4.586 4.586"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Smart Automation</h3>
-                  <p className="text-gray-600">
-                    Automate administrative tasks, so educators can focus on what truly matters: teaching.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-                className="flex items-start space-x-4"
-              >
-                <div className="bg-red-500 text-white p-3 rounded-lg">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 4v16m8-8H4"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Enhanced Learning</h3>
-                  <p className="text-gray-600">
-                    Create interactive and immersive learning experiences for students and educators alike.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
           </motion.div>
-        </div>
 
-        {/* Spacing between sections for smaller screens */}
-        <div className="my-12"></div>
-
-        {/* Second Row - Mission Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-20">
-          {/* Left Content - Mission */}
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="space-y-6 order-2 lg:pl-16 md:order-1 text-center md:text-left"
-          >
-            <h5 className="text-sm font-semibold text-gray-600 uppercase tracking-widest">
-              Our Vision
-            </h5>
-            <p className="text-gray-600">
-              You deserve an innovative learning ecosystem in 2025. HelloDigiSir is on a mission to transform
-              education with seamless connectivity, skill development, and cutting-edge learning solutions.
-            </p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+          {/* First Image Set */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-32">
+            {/* Left - Image Stack */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 1 }}
-              className="text-3xl sm:text-4xl font-extrabold leading-tight text-gray-900 mt-2"
+              transition={{ duration: 0.8 }}
+              className="relative h-[500px] md:h-[600px]"
             >
-              Empowering Education Through{" "}
-              <motion.span
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className="relative inline-block"
-              >
-                Tech
-                <span className="absolute left-0 bottom-0 w-full h-[5px] bg-gray-300 opacity-50"></span>
-              </motion.span>
-            </motion.h1>
-
-            <div className="mt-8 space-y-6">
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-                className="flex items-start space-x-4"
+                className="absolute top-0 right-0 w-[80%] h-[80%] rounded-2xl overflow-hidden shadow-2xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="bg-green-500 text-white p-3 rounded-lg">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Comprehensive EduTech Solutions
-                  </h3>
-                  <p className="text-gray-600">
-                    Provide user-friendly EdTech solutions. Simplify tasks and enhance learning.
-                  </p>
-                </div>
+                <img src={images.set1.main} alt="Dashboard" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-transparent"></div>
               </motion.div>
-
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.4 }}
-                className="flex items-start space-x-4"
+                className="absolute bottom-20 -left-4 w-[60%] h-[50%] rounded-2xl overflow-hidden shadow-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="bg-purple-500 text-white p-3 rounded-lg">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 4v16m8-8H4"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Enhance Learning Experiences
-                  </h3>
-                  <p className="text-gray-600">
-                    Innovative tools for educators and students. Foster academic excellence for all.
-                  </p>
-                </div>
+                <img src={images.set1.overlay1} alt="Interface" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-transparent"></div>
               </motion.div>
-            </div>
-          </motion.div>
+              <motion.div
+                className="absolute top-[20%] -right-8 w-[40%] h-[40%] rounded-2xl overflow-hidden shadow-2xl"
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img src={images.set1.overlay2} alt="Learning" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-indigo-900/30 to-transparent"></div>
+              </motion.div>
+            </motion.div>
 
-          {/* Right Content - Overlapping Images */}
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="relative max-w-md mx-auto order-1 md:order-2 mb-20 md:mb-0"
-          >
-            <motion.img
-              src={our_mission}
-              alt="Our Mission"
-              className="w-full h-64 object-cover backdrop-blur-lg shadow-2xl shadow-gray-800"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+            {/* Right - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-800/10 to-transparent"></div>
-            <motion.img
-              src={learning}
-              alt="Our Mission"
-              className="absolute top-8 left-8 w-full h-64 object-cover shadow-2xl shadow-gray-700"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                Empower education with a single platform
+              </h2>
+              <p className="text-lg text-gray-600">
+                You deserve a seamless EduTech experience in 2025. Erudexa simplifies administration,
+                enhances learning, and drives academic excellence.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-blue-500 text-white p-3 rounded-lg">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold">Smart Automation</h3>
+                    <p className="text-gray-600">Automate administrative tasks for focused teaching</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="bg-purple-500 text-white p-3 rounded-lg">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold">Enhanced Learning</h3>
+                    <p className="text-gray-600">Create immersive learning experiences</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Second Image Set */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-blue-800/10 to-transparent blur-xl"></div>
-          </motion.div>
+              transition={{ duration: 0.8 }}
+              className="space-y-6 order-2 md:order-1"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                Transform Education Through Technology
+              </h2>
+              <p className="text-lg text-gray-600">
+                Erudexa is on a mission to transform education with seamless connectivity, 
+                skill development, and cutting-edge learning solutions.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-indigo-500 text-white p-3 rounded-lg">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold">Comprehensive Solutions</h3>
+                    <p className="text-gray-600">All-in-one platform for educational needs</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="bg-pink-500 text-white p-3 rounded-lg">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold">Advanced Analytics</h3>
+                    <p className="text-gray-600">Data-driven educational insights</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - Image Stack */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative h-[500px] md:h-[600px] order-1 md:order-2"
+            >
+              <motion.div
+                className="absolute top-0 left-0 w-[80%] h-[80%] rounded-2xl overflow-hidden shadow-2xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img src={images.set2.main} alt="Management" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-bl from-purple-900/40 to-transparent"></div>
+              </motion.div>
+              <motion.div
+                className="absolute bottom-20 -right-4 w-[60%] h-[50%] rounded-2xl overflow-hidden shadow-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img src={images.set2.overlay1} alt="Virtual Classroom" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/30 to-transparent"></div>
+              </motion.div>
+              <motion.div
+                className="absolute top-[20%] -left-8 w-[40%] h-[40%] rounded-2xl overflow-hidden shadow-2xl"
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img src={images.set2.overlay2} alt="Education" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/30 to-transparent"></div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

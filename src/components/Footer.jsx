@@ -8,11 +8,11 @@ const Footer = () => {
         {/* Left Section */}
         <div>
           <div className="flex items-center space-x-3">
-            <img src="/logo.png" alt="DigiSir Logo" className="w-8 h-8" />
-            <h2 className="text-xl font-semibold text-gray-800">DigiSir</h2>
+            <img src="/logo.png" alt="Erudexa Logo" className="w-8 h-8" />
+            <h2 className="text-xl font-semibold text-gray-800">Erudexa</h2>
           </div>
           <p className="text-gray-600 mt-3">
-            Empowering education through digital innovation. Transform your teaching journey with DigiSir.
+            Empowering education through digital innovation. Transform your teaching journey with Erudexa.
           </p>
         </div>
 
@@ -48,7 +48,7 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="text-center text-gray-500 text-sm mt-6">
-        © {new Date().getFullYear()} Hellodigisir. All rights reserved.
+        © {new Date().getFullYear()} Erudexa. All rights reserved.
       </div>
     </footer>
   );
