@@ -11,7 +11,7 @@
             
 
             {/* Subtle top gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-whitw"></div>
           </div>
 
           {/* Extremely subtle blur circles - adjusted position */}
@@ -20,7 +20,7 @@
 
           {/* Very subtle glassmorphism */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent backdrop-blur-[1px]"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-white to-white backdrop-blur-[1px]"></div>
           </div>
 
           {/* Content wrapper */}
@@ -154,9 +154,9 @@
                   />
                 </div>
 
-                {/* Floating Feature Cards */}
+                {/* Floating Feature Cards - Updated for better mobile responsiveness */}
                 <motion.div
-                  className="absolute -right-4 top-1/4 w-64 backdrop-blur-sm bg-white/40 p-4 rounded-xl shadow-lg border border-white/20"
+                  className="absolute hidden md:block md:-right-4 lg:right-0 top-1/4 w-56 lg:w-64 backdrop-blur-sm bg-white/40 p-4 rounded-xl shadow-lg border border-white/20 transform md:translate-x-0 transition-transform duration-300"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 1.2 }}
@@ -175,7 +175,7 @@
                 </motion.div>
 
                 <motion.div
-                  className="absolute -left-4 bottom-1/4 w-64 backdrop-blur-sm bg-white/40 p-4 rounded-xl shadow-lg border border-white/20"
+                  className="absolute hidden md:block md:-left-4 lg:left-0 bottom-1/4 w-56 lg:w-64 backdrop-blur-sm bg-white/40 p-4 rounded-xl shadow-lg border border-white/20 transform md:translate-x-0 transition-transform duration-300"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 1.4 }}
@@ -192,6 +192,47 @@
                     </div>
                   </div>
                 </motion.div>
+
+                {/* Mobile Feature Cards */}
+                <div className="md:hidden mt-6 space-y-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.2 }}
+                    className="w-full backdrop-blur-sm bg-white/40 p-4 rounded-xl shadow-lg border border-white/20"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-blue-100 rounded-lg">
+                        <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">AI-Powered Learning</h3>
+                        <p className="text-sm text-gray-600">Personalized for each student</p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.4 }}
+                    className="w-full backdrop-blur-sm bg-white/40 p-4 rounded-xl shadow-lg border border-white/20"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-purple-100 rounded-lg">
+                        <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">Smart Analytics</h3>
+                        <p className="text-sm text-gray-600">Track progress in real-time</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
               </motion.div>
             </section>
           </div>
