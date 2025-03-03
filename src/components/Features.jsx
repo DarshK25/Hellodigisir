@@ -77,7 +77,7 @@ const FeatureCard = ({ title, description, icon: Icon, gradient, iconColor, subF
       transition={{ duration: 0.5 }}
       className="group relative p-8 rounded-2xl bg-white dark:bg-white backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300"
     >
-      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-300`} />
       <div className="relative z-10">
         <div className="flex items-center gap-4 mb-4">
           <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-white shadow-md ${iconColor}`}>
