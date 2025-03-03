@@ -75,9 +75,9 @@ const FeatureCard = ({ title, description, icon: Icon, gradient, iconColor, subF
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="group relative p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300"
+      className="group relative p-8 rounded-2xl bg-white dark:bg-white backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300"
     >
-      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-300`} />
+      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
       <div className="relative z-10">
         <div className="flex items-center gap-4 mb-4">
           <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-white shadow-md ${iconColor}`}>
@@ -101,13 +101,16 @@ const FeatureCard = ({ title, description, icon: Icon, gradient, iconColor, subF
 
 const Features = () => {
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* Background blur circles */}
-      <div className="absolute top-40 left-0 w-[1000px] h-[1000px] bg-blue-100/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30" />
-      <div className="absolute bottom-0 right-0 w-[1000px] h-[1000px] bg-purple-100/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30" />
+    <div className="relative w-full overflow-hidden bg-[#ffffff] dark:bg-[#ffffff]">
+      {/* Background blur circles with reduced opacity and explicit light colors */}
+      <div className="absolute top-40 left-0 w-[1000px] h-[1000px] bg-[#E7EBFF]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20" />
+      <div className="absolute bottom-0 right-0 w-[1000px] h-[1000px] bg-[#E7EBFF]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
-        <div className="text-center mb-8 p-4 rounded-lg bg-gradient-to-b from-[rgb(231,235,255)] to-white">
+      {/* Additional background layer to ensure light background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#ffffff] to-[#ffffff] opacity-90" />
+
+      <div className="relative max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-8 p-4 rounded-lg bg-gradient-to-b from-[#E7EBFF] to-[#ffffff] dark:from-[#E7EBFF] dark:to-[#ffffff]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
